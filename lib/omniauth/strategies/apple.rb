@@ -12,12 +12,13 @@ module OmniAuth
         site: 'https://appleid.apple.com',
         authorize_url: '/auth/authorize',
         token_url: '/auth/token',
+        response_mode: 'form_post',
       }
 
       uid { id_token['sub'] }
 
       info do
-        { sub: id_token['sub'] }
+        { email: id_token['email'] }
       end
 
       def client
